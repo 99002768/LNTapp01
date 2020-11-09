@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="en_name">పేరు నమోదు చేయండి</string>
+    <string name="en_cancel">రద్దు చేయండి</string>
+    <string name="en_login">ప్రవేశించండి</string>
+    <string name="en_password">రహస్య సంకేతం తెలపండి</string>
+</resources>
