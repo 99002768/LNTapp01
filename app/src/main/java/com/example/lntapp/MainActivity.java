@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
 //        thrinath=findViewById(R.id.thrinath);
 //        thrinath.setText(input);
         Intent intent=new Intent(MainActivity.this,HomeActivity.class);
-//       intent.putExtra("mykey","sfdgjsfg");
- intent.putExtra("mykey",thrinath);
+       intent.putExtra("mykey","sfdgjsfg");
+// intent.putExtra("mykey",thrinath);
         startActivity(intent);
     }
 }
