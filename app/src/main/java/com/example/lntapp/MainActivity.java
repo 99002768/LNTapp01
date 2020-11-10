@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.button2:
+                System.out.println("added");
                 startmethod();
                 break;
         }
