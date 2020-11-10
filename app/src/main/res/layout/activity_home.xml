@@ -21,6 +21,7 @@
         android:id="@+id/countriesListview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
