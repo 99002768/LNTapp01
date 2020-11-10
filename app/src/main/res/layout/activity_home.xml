@@ -14,5 +14,13 @@
         android:background="#FAE8E8"
         android:text="home"
         tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="162dp" />
+        tools:layout_editor_absoluteY="162dp"
+        tools:ignore="MissingConstraints" />
+
+    <ListView
+        android:id="@+id/countriesListview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

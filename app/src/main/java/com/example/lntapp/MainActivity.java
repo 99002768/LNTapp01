@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Log.i(TAG,"onCreate");
     }
 
@@ -33,12 +34,13 @@ public class MainActivity extends AppCompatActivity {
 //        thrinath.setText(input);
         switch (view.getId()){
             case R.id.button:
-                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("tel:12345678 "));
-                startActivity(intent);
-                break;
-            case R.id.button2:
                 System.out.println("added");
                 startmethod();
+                break;
+            case R.id.button2:
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("tel:12345678 "));
+                startActivity(intent);
+
                 break;
         }
 
