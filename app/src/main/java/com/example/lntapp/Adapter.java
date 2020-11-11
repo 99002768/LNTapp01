@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * is to put data into each row of the listview
  */
-public class Adapter  extends RecyclerView.Adapter<Adapter.wordViewHolder>{
+public class Adapter extends RecyclerView.Adapter<Adapter.wordViewHolder>{
 
     String[] languages;
     LayoutInflater layoutInflater;

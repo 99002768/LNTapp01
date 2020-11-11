@@ -14,7 +14,7 @@ public class RecyclerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
-        languagesData = new String[]{"english","hindi","urdu","telugu"};
+        languagesData = new String[]{"english","hindi","urdu","telugu","kannad"};
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         Adapter adapter = new Adapter(this,languagesData);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
