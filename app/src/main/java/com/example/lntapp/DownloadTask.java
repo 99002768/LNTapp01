@@ -1,5 +1,5 @@
 package com.example.lntapp;
-
+import android.view.View;
 import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -14,6 +14,11 @@ public class DownloadTask  extends AsyncTask<String,Integer,Void> {
     public DownloadTask(ProgressBar progressBar) {
         mProgressBar = progressBar;
 
+    }
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -40,5 +45,10 @@ public class DownloadTask  extends AsyncTask<String,Integer,Void> {
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
         mProgressBar.setProgress(values[0]);
+    }
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        mProgressBar.setVisibility(View.INVISIBLE);
     }
 }
