@@ -1,7 +1,9 @@
 package com.example.lntapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.database.Cursor;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -10,10 +12,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.CursorAdapter;
 import com.example.lntapp.database.DbAccessObj;
+import com.example.lntapp.database.FeedReaderContract.FeedEntry;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName() ;
@@ -72,6 +73,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(TAG,"onstart");
+        ListView dbListView = findViewById(R.id.dblist);
+        Cursor dataCursor = dbAccessObj.getRows();
+        //put the data into adapter
+        CursorAdapter adapter = new SimpleCursorAdapter(this,
+                R.layout.row_listview,
+                dataCursor,
+                new String[]{FeedEntry.COLUMN_NAME_TITLE,FeedEntry.COLUMN_NAME_SUBTITLE},
+                //"title","subtitle"},
+                new int[] {R.id.textviewRow,R.id.textViewsubtitle});
+        //set the adapter onto the listview
+        dbListView.setAdapter(adapter);
     }
 
     @Override

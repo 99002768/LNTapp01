@@ -66,7 +66,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.wordViewHolder>{
         public TextView titleTextView;
         public wordViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.textView);
+            titleTextView = itemView.findViewById(R.id.textViewdb);
         }
     }
 }

@@ -38,6 +38,10 @@ public class DbAccessObj{
         String subtitle = cursor.getString(subtitleIndex);
         return title +"\n" +subtitle;
     }
+    public Cursor getRows() {
+        Cursor cursor = database.query(FeedEntry.TABLE_NAME,null,null,null,null,null,null);
+        return cursor;
+    }
     private void updateRow(){}
     private void deleteRow(){}
 
