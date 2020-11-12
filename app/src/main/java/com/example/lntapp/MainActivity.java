@@ -12,10 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lntapp.database.DbAccessObj;
+
 public class MainActivity extends AppCompatActivity {
-
     private static final String TAG = MainActivity.class.getSimpleName() ;
-
+    DbAccessObj dbAccessObj;
     public static final String MYPREFS = "myprefs";
     public static final String NAMEKEY = "namekey";
     public static final String PWDKEY = "pwdkey";
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i(TAG,"onCreate");
+        dbAccessObj=new DbAccessObj();
         nameEditText =  findViewById(R.id.Name);
         pwdEditText = findViewById(R.id.password);
     }
@@ -121,5 +123,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.i(TAG,"onstop");
+    }
+    public void handleDb(View view) {
+        switch (view.getId()){
+            case R.id.buttonput:
+                String title = nameEditText.getText().toString();
+                String subtitle = pwdEditText.getText().toString();
+
+                dbAccessObj.createRow(title,subtitle);
+                break;
+            case R.id.buttonget:
+                break;
+        }
     }
 }

@@ -23,8 +23,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".FetchBook" />
-        <activity android:name=".NetworkUtils" />
+
         <activity android:name=".AsyncActivity">
 
         </activity>
