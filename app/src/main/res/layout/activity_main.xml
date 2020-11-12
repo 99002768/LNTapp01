@@ -104,6 +104,7 @@
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="83dp"
         android:onClick="handleDb"
+        android:rotationX="4"
         android:text="get"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +126,7 @@
         android:id="@+id/dblist"
         android:layout_width="422dp"
         android:layout_height="247dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintStart_toStartOf="@id/button"
         app:layout_constraintTop_toBottomOf="@id/button" />
 

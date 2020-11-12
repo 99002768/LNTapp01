@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i(TAG,"onCreate");
-        dbAccessObj = new DbAccessObj(this);
-        dbAccessObj.openDb();
         nameEditText =  findViewById(R.id.Name);
         pwdEditText = findViewById(R.id.password);
+        dbAccessObj = new DbAccessObj(this);
+        dbAccessObj.openDb();
     }
 
     public void clickhandler(View view) {
@@ -45,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
 //        thrinath.setText(input);
         switch (view.getId()){
             case R.id.button:
-                System.out.println("added");
-                startmethod();
+                getCredentials();
                 break;
             case R.id.button2:
                 Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("tel:12345678 "));
@@ -72,18 +71,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(TAG,"onstart");
+        Log.i(TAG,"onStart");
         ListView dbListView = findViewById(R.id.dblist);
-        Cursor dataCursor = dbAccessObj.getRows();
+        Uri uriSms = Uri.parse("content://sms/inbox");
+        Cursor dataCursor =  getContentResolver().query(uriSms,null,null,null,null);
+        // Cursor dataCursor = dbAccessObj.getRows();
         //put the data into adapter
         CursorAdapter adapter = new SimpleCursorAdapter(this,
                 R.layout.row_listview,
                 dataCursor,
-                new String[]{FeedEntry.COLUMN_NAME_TITLE,FeedEntry.COLUMN_NAME_SUBTITLE},
+                new String[]{"body","address"},
+                //FeedEntry.COLUMN_NAME_TITLE,FeedEntry.COLUMN_NAME_SUBTITLE},
                 //"title","subtitle"},
                 new int[] {R.id.textviewRow,R.id.textViewsubtitle});
         //set the adapter onto the listview
         dbListView.setAdapter(adapter);
+    }
+
+    private void getCredentials() {
+        dbAccessObj.query(nameEditText.getText().toString());
     }
 
     @Override
@@ -137,6 +143,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.i(TAG,"onstop");
+    }
+
+    private void startHome() {
+        Intent hIntent = new Intent(MainActivity.this, HomeActivity.class);
+        hIntent.putExtra("mykey","abdul");
+        int c = add(10,20);
+        startActivity(hIntent);
     }
     public void handleDb(View view) {
         switch (view.getId()){
