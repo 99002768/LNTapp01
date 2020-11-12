@@ -1,5 +1,5 @@
 package com.example.lntapp;
-
+import android.provider.CallLog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.widget.ListView;
@@ -73,16 +73,20 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         Log.i(TAG,"onStart");
         ListView dbListView = findViewById(R.id.dblist);
-        Uri uriSms = Uri.parse("content://sms/inbox");
-        Cursor dataCursor =  getContentResolver().query(uriSms,null,null,null,null);
+//        Uri uriSms = Uri.parse("content://sms/inbox");
+//        Cursor dataCursor =  getContentResolver().query(uriSms,null,null,null,null);
         // Cursor dataCursor = dbAccessObj.getRows();
         //put the data into adapter
+        // Uri uriSms = Uri.parse("content://sms/inbox");
+        Uri callOgUri = CallLog.Calls.CONTENT_URI;
+        Cursor dataCursor =  getContentResolver().query(callOgUri,null,null,null,null);
         CursorAdapter adapter = new SimpleCursorAdapter(this,
                 R.layout.row_listview,
                 dataCursor,
-                new String[]{"body","address"},
+                //new String[]{"body","address"},
                 //FeedEntry.COLUMN_NAME_TITLE,FeedEntry.COLUMN_NAME_SUBTITLE},
                 //"title","subtitle"},
+                new String[]{CallLog.Calls.NUMBER,CallLog.Calls.CACHED_NAME},
                 new int[] {R.id.textviewRow,R.id.textViewsubtitle});
         //set the adapter onto the listview
         dbListView.setAdapter(adapter);
