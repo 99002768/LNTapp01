@@ -7,6 +7,7 @@ import android.os.IBinder;
 import android.widget.Toast;
 
 public class MusicService extends Service {
+    MediaPlayer mediaPlayer1;
     public MusicService() {
     }
 
@@ -19,15 +20,16 @@ public class MusicService extends Service {
 
     @Override
     public void onDestroy() {
+        mediaPlayer1.stop();
         super.onDestroy();
         Toast.makeText(this, "service destroyed", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
-        MediaPlayer mediaPlayer=MediaPlayer.create(this,R.raw.music);
-        mediaPlayer.start();
+         super.onStartCommand(intent, flags, startId);
+        mediaPlayer1 = MediaPlayer.create(this, R.raw.music);
+        mediaPlayer1.start();
         return  START_STICKY;
     }
 

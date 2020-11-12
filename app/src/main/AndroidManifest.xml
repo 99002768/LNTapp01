@@ -12,8 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LNTapp">
-        <service
-            android:name=".MusicService"></service>
+        <service android:name=".MusicService"></service>
 
         <receiver
             android:name=".SmsReceiver"
@@ -27,16 +26,18 @@
         <activity android:name=".FetchBook" />
         <activity android:name=".NetworkUtils" />
         <activity android:name=".AsyncActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RecyclerActivity" />
         <activity android:name=".HomeActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
             android:theme="@style/DiwaliLogoFont" />
     </application>
 

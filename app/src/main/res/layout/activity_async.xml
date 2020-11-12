@@ -64,20 +64,25 @@
 
     <Button
         android:id="@+id/buttonstart"
-        android:onClick="serviceHandler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="173dp"
+        android:onClick="serviceHandler"
         android:text="Start"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="510dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bookInput"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonstop"
-        android:onClick="serviceHandler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:onClick="serviceHandler"
         android:text="stop"
-        tools:layout_editor_absoluteX="252dp"
-        tools:layout_editor_absoluteY="506dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonstart"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
